@@ -1,0 +1,19 @@
+{% extends "templates/web.html" %}
+
+
+{% block page_content %}
+    <div class="container-fluid p-3 mx-auto">
+      <div class="row">
+  <div class="col-12 col-md-6 mx-auto">
+    {% for doc in blog %}
+    <article class="py-3 border-bottom">
+      <h3><a href="{{doc.route}}" class="post-title">{{doc.title}}</a></h3>
+      <p><span class='mr-2'> {{frappe.format_date(doc.published_on)}} </span> </p>
+      <p class="post-body"> {{doc.blog_intro}}
+      </p>
+    </article>
+    {% endfor %}
+  </div>
+</div>
+    </div>
+{% endblock %}
